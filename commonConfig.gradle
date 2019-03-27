@@ -18,6 +18,9 @@ ext {
                       storePassword: "aa",
                       keyAlias     : "aa",
                       keyPassword  : "aa"]
+
+    tinker=["tinker_version":'1.9.1']
+
     java = [sourceCompatibility: JavaVersion.VERSION_1_7,
             targetCompatibility: JavaVersion.VERSION_1_7]
     dependencies = [multidex    : "com.android.support:multidex",

@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">TinkerDemo</string>
+    <string name="rationale_write_external_storage">读取内存管理权限</string>
 </resources>

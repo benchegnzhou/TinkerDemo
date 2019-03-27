@@ -1,15 +1,81 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:orientation="vertical"
     tools:context=".MainActivity">
 
     <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Hello World!"
-       />
+        android:id="@+id/tv_load_patch"
+        android:layout_width="match_parent"
+        android:layout_height="144px"
+        android:layout_marginLeft="40px"
+        android:layout_marginRight="40px"
+        android:layout_marginTop="100px"
+        android:background="@color/color_47a8fc"
+        android:gravity="center"
+        android:text="加载patch包"
+        android:textColor="@color/color_bg_ffffff" />
 
-</RelativeLayout>
+    <TextView
+        android:id="@+id/tv_next"
+        android:layout_width="match_parent"
+        android:layout_height="144px"
+        android:layout_marginLeft="40px"
+        android:layout_marginRight="40px"
+        android:layout_marginTop="100px"
+        android:background="@color/color_47a8fc"
+        android:gravity="center"
+        android:text="测试按钮"
+        android:textColor="@color/color_bg_ffffff" />
+
+    <TextView
+        android:id="@+id/tv_next2"
+        android:layout_width="match_parent"
+        android:layout_height="144px"
+        android:layout_marginLeft="40px"
+        android:layout_marginRight="40px"
+        android:layout_marginTop="100px"
+        android:background="@color/color_47a8fc"
+        android:gravity="center"
+        android:text="测试按钮2"
+        android:textColor="@color/color_bg_ffffff" />
+
+    <TextView
+        android:id="@+id/tv_next3"
+        android:layout_width="match_parent"
+        android:layout_height="144px"
+        android:layout_marginLeft="40px"
+        android:layout_marginRight="40px"
+        android:layout_marginTop="100px"
+        android:background="@color/color_47a8fc"
+        android:gravity="center"
+        android:text="测试按钮3"
+        android:textColor="@color/color_bg_ffffff" />
+
+    <TextView
+        android:id="@+id/tv_next4"
+        android:layout_width="match_parent"
+        android:layout_height="144px"
+        android:layout_marginLeft="40px"
+        android:layout_marginRight="40px"
+        android:layout_marginTop="100px"
+        android:background="@color/color_47a8fc"
+        android:gravity="center"
+        android:text="测试按钮4"
+        android:textColor="@color/color_bg_ffffff" />
+
+
+    <ImageView
+        android:id="@+id/im_im"
+        android:layout_width="400px"
+        android:layout_height="400px"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="20px"
+        android:scaleType="centerCrop"
+        android:src="@mipmap/alipay_icon" />
+
+
+</LinearLayout>
