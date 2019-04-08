@@ -9,9 +9,6 @@ import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
-import android.widget.Toast;
-
-import com.tencent.tinker.lib.tinker.TinkerInstaller;
 import com.zbc.tinkerdemo.manager.TinkerManager;
 import com.zbc.tinkerdemo.util.FileUtils;
 import com.ztsc.commonutils.toast.ToastUtils;
@@ -30,7 +27,7 @@ public class MainActivity extends AppCompatActivity implements ActivityCompat.On
     @Bind(R.id.tv_next)
     TextView tvNext;
     private File mPatch;
-    private String str = "测试代码块";
+
     private final String FILE_END = ".apk";
     private final int RC_LOCATION_CONTACTS_PERM = 120;
 
@@ -39,7 +36,6 @@ public class MainActivity extends AppCompatActivity implements ActivityCompat.On
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         ButterKnife.bind(this);
-        tvNext.setText(str);
         loadFile();
         requestPermissions();
         findViewById(R.id.tv_next4).setOnClickListener(new View.OnClickListener() {
@@ -61,7 +57,7 @@ public class MainActivity extends AppCompatActivity implements ActivityCompat.On
         mPatch = new File(FileUtils.getPatchDownPath() + "/ztsc_patch.apk");
     }
 
-    @OnClick({R.id.tv_load_patch, R.id.tv_next2, R.id.tv_next3})
+    @OnClick({R.id.tv_load_patch,R.id.tv_next, R.id.tv_next2, R.id.tv_next3})
     public void onClick(View view) {
         switch (view.getId()) {
             case R.id.tv_load_patch:
@@ -70,6 +66,7 @@ public class MainActivity extends AppCompatActivity implements ActivityCompat.On
                 break;
             case R.id.tv_next:
                 TinkerManager.cleanPatch(this);
+                ToastUtils.showToastShort("增量更新已清除");
                 break;
             case R.id.tv_next2:
 //                TinkerInstaller.onReceiveUpgradePatch(getApplicationContext(), mPatch.getAbsolutePath());
@@ -91,7 +88,6 @@ public class MainActivity extends AppCompatActivity implements ActivityCompat.On
     private void requestPermissions() {
         //acitivty中申请权限
         ActivityCompat.requestPermissions(this, new String[]{Manifest.permission.WRITE_EXTERNAL_STORAGE}, RC_LOCATION_CONTACTS_PERM);
-
     }
 
 

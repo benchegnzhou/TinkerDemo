@@ -28,7 +28,7 @@
         android:layout_marginTop="100px"
         android:background="@color/color_47a8fc"
         android:gravity="center"
-        android:text="移除所有更新包文件"
+        android:text="移除  所有更新包文件"
         android:textColor="@color/color_bg_ffffff" />
 
     <TextView
@@ -64,7 +64,7 @@
         android:layout_marginTop="100px"
         android:background="@color/color_47a8fc"
         android:gravity="center"
-        android:text="测试按钮4"
+        android:text="测试按钮，暂未使用"
         android:textColor="@color/color_bg_ffffff" />
 
 

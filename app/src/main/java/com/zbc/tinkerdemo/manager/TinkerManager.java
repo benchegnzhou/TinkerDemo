@@ -7,6 +7,7 @@ import com.tencent.tinker.lib.tinker.TinkerInstaller;
 import com.tencent.tinker.lib.util.UpgradePatchRetry;
 import com.tencent.tinker.loader.app.ApplicationLike;
 import com.zbc.tinkerdemo.crash.SampleUncaughtExceptionHandler;
+import com.ztsc.commonutils.toast.ToastUtils;
 
 import java.io.File;
 
@@ -48,9 +49,10 @@ public class TinkerManager {
     public static void loadPatch(String path) {
         //文件存不存在的直接不进行处理,同时不处理文件夹
         if (!new File(path).exists() || new File(path).isDirectory()) {
+            ToastUtils.showToastShort("文件是一个文件夹");
             return;
         }
-        if (!Tinker.isTinkerInstalled()) {
+        if (Tinker.isTinkerInstalled()) {
             TinkerInstaller.onReceiveUpgradePatch(getApplicationContext(), path);
         }
     }

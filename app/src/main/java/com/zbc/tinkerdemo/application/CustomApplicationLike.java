@@ -22,9 +22,9 @@ import com.ztsc.commonutils.utilconfig.Config;
  * 类    名： CustomApplicationLike
  * 备    注：
  */
-@DefaultLifeCycle(application = ".MApplication"
-        , flags = ShareConstants.TINKER_ENABLE_ALL
-        , loadVerifyFlag = false)
+@DefaultLifeCycle(application = ".MApplication"                     //application类名
+        , flags = ShareConstants.TINKER_ENABLE_ALL                 //tinkerFlags
+        , loadVerifyFlag = false)                                   //tinkerLoadVerifyFlag
 public class CustomApplicationLike extends ApplicationLike {
 
 

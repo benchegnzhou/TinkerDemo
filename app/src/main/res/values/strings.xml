@@ -1,4 +1,4 @@
 <resources>
-    <string name="app_name">TinkerDemo</string>
+    <string name="app_name">超级热更新</string>
     <string name="rationale_write_external_storage">读取内存管理权限</string>
 </resources>
