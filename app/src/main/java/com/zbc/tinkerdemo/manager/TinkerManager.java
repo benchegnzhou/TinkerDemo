@@ -50,7 +50,7 @@ public class TinkerManager {
         if (!new File(path).exists() || new File(path).isDirectory()) {
             return;
         }
-        if (Tinker.isTinkerInstalled()) {
+        if (!Tinker.isTinkerInstalled()) {
             TinkerInstaller.onReceiveUpgradePatch(getApplicationContext(), path);
         }
     }
