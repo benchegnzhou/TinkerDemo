@@ -42,6 +42,16 @@ android {
     dexOptions {
         // 支持大工程模式
         jumboMode = true
+
+        javaMaxHeapSize "2g"
+       // preDexLibraries = false //delete the already predexed libraries
+       additionalParameters = [//dex参数详见 dx --help
+                                '--multi-dex',//多分包
+                                '--set-max-idx-number=60000',//每个包内方法数上限
+                                '--main-dex-list=' + projectDir + '/multiDexKeep.txt',//打包进主classes.dex的文件列表
+                                '--minimal-main-dex'//使上一句生效
+        ]
+
     }
 
     signingConfigs {
@@ -134,20 +144,21 @@ dependencies {
 }
 
 def bakPath = file("${buildDir}/bakApk/") //指定基准文件存放位置
+def dirFile = "0408-11-02-21"
 ext {
     //如果这个值为true 表名启用tinker的配置
     buildWithTinker = true
     tinkerId = "1.0.0"
     //for normal build
     //old apk file to build patch apk
-    tinkerOldApkPath = "${bakPath}/app-release-0325-15-35-42.apk"
+    tinkerOldApkPath = "${bakPath}/app-release-${dirFile}.apk"
     //proguard mapping file to build patch apk
-    tinkerApplyMappingPath = "${bakPath}/app-release-0325-15-35-42-mapping.txt"
+    tinkerApplyMappingPath = "${bakPath}/app-release-${dirFile}-mapping.txt"
     //resource R.txt to build patch apk, must input if there is resource changed
-    tinkerApplyResourcePath = "${bakPath}/app-release-0325-15-35-42-R.txt"
+    tinkerApplyResourcePath = "${bakPath}/app-release-${dirFile}-R.txt"
 
     //only use for build all flavor, if not, just ignore this field
-    tinkerBuildFlavorDirectory = "${bakPath}/app-0325-15-35-42"
+    tinkerBuildFlavorDirectory = "${bakPath}/app-${dirFile}"
 }
 
 //控制当前编译是否启用tinker
@@ -190,7 +201,6 @@ if (buildWithtinker()) {
 //        ignoreWarning = false
 //        //在运行过程中，我们需要验证基准apk包与补丁包的签名是否一致，我们是否需要为你签名。
 //        useSign = true
-//
 //        tinkerEnable = buildWithtinker()
 //
 //        buildConfig {

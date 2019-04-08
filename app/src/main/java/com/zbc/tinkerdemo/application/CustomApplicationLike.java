@@ -28,7 +28,8 @@ import com.ztsc.commonutils.utilconfig.Config;
 public class CustomApplicationLike extends ApplicationLike {
 
 
-    public static CustomApplicationLike sApplication;
+    public static Context sApplication;
+    public static CustomApplicationLike sApplike;
 
 
     public CustomApplicationLike(Application application, int tinkerFlags, boolean tinkerLoadVerifyFlag, long applicationStartElapsedTime, long applicationStartMillisTime, Intent tinkerResultIntent) {
@@ -58,6 +59,11 @@ public class CustomApplicationLike extends ApplicationLike {
         TinkerManager.installTinker(this);
         Tinker tinker = Tinker.with(getApplication());
 
+        //获取全局上下文
+        sApplication = base;
+        sApplike = this;
+
+
         CommonUtil.getInstance().init(base, new Config()
                 .setLogOpen(true)
                 .setLogTag("ZBC_TINKER")
@@ -65,11 +71,6 @@ public class CustomApplicationLike extends ApplicationLike {
     }
 
 
-    @Override
-    public void onCreate() {
-        super.onCreate();
-        sApplication = this;         //获取全局上下文
-    }
 
 
     @TargetApi(Build.VERSION_CODES.ICE_CREAM_SANDWICH)

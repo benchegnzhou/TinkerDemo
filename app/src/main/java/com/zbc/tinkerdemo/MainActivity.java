@@ -7,6 +7,7 @@ import android.support.annotation.NonNull;
 import android.support.v4.app.ActivityCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
+import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -44,7 +45,7 @@ public class MainActivity extends AppCompatActivity implements ActivityCompat.On
         findViewById(R.id.tv_next4).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                ToastUtils.showToastShort("我增加测试按钮4");
+                ToastUtils.showToastShort("我增加测试按钮4，你竟然点击了");
             }
         });
         findViewById(R.id.im_im).setOnClickListener(new View.OnClickListener() {
@@ -53,6 +54,7 @@ public class MainActivity extends AppCompatActivity implements ActivityCompat.On
                 ToastUtils.showToastShort("点击了呀");
             }
         });
+        ((ImageView) (findViewById(R.id.im_im))).setImageResource(R.mipmap.test_img);
     }
 
     private void loadFile() {
@@ -64,10 +66,14 @@ public class MainActivity extends AppCompatActivity implements ActivityCompat.On
         switch (view.getId()) {
             case R.id.tv_load_patch:
                 loadPatch();
+                ToastUtils.showToastShort(mPatch.exists() ? "apk文件已更新请重启后APP" : "未找到安装包文件");
+                break;
+            case R.id.tv_next:
+                TinkerManager.cleanPatch(this);
                 break;
             case R.id.tv_next2:
-                TinkerInstaller.onReceiveUpgradePatch(getApplicationContext(), mPatch.getAbsolutePath());
-                ToastUtils.showToastShort(mPatch.exists() ? "测试成功" : "未找到安装包文件");
+//                TinkerInstaller.onReceiveUpgradePatch(getApplicationContext(), mPatch.getAbsolutePath());
+                ToastUtils.showToastShort(mPatch.exists() ? "安装文件存在可以安装" : "未找到安装包文件");
                 break;
             case R.id.tv_next3:
                 startActivity(new Intent(this, DemoTestActivity.class));

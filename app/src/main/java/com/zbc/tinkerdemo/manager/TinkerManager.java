@@ -56,7 +56,14 @@ public class TinkerManager {
     }
 
 
-
+    /**
+     * 清除所有更新包文件
+     *
+     * @param context
+     */
+    public static  void cleanPatch(Context context) {
+        TinkerInstaller.cleanPatch(context);
+    }
 
     public static void initFastCrashProtect() {
         if (uncaughtExceptionHandler == null) {
